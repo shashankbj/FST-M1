@@ -54,22 +54,21 @@ public class Activity1 {
 
 	*/
 	
-	
 	@Test
-	
-	public void CalculatorTest ()
-	{
-		driver.findElement(AppiumBy.id("digit_8")).click();
+	public void variousLocators() {
+		//using accesibilty id,
+		driver.findElement(AppiumBy.accessibilityId("clear")).click();
+		
+		driver.findElement(AppiumBy.id("com.miui.calculator:id/btn_8_s")).click();
+		
 		driver.findElement(AppiumBy.accessibilityId("multiply")).click();
-		driver.findElement(AppiumBy.id("digit_3")).click();
-		driver.findElement(AppiumBy.id("com.google.android.calculator:id/eq")).click();
 		
-		//Find and get the result text
-	
-		String result=driver.findElement(AppiumBy.id("com.google.android.calculator:id/result_final")).getText();
+		driver.findElement(AppiumBy.id("com.miui.calculator:id/btn_3_s")).click();
 		
-		//Assertion
-		assertEquals(result, "24");
+		driver.findElement(AppiumBy.accessibilityId("equals")).click();
+		
+		String res = driver.findElement(AppiumBy.xpath("//android.widget.ViewText[@resource-id='result")).getText();
+		assertEquals(res, "= 24");
 		
 	}
 	
@@ -81,5 +80,4 @@ public class Activity1 {
 	//	driver.quit();
 	}
 }
-
 
